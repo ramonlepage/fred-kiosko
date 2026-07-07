@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRED | Café & Kiosko en Barcelona</title>
+<meta name="description" content="FRED es un kiosko de barrio reinventado en el Eixample de Barcelona. Café de especialidad, revistas, periódicos, cromos, cultura y una nueva forma de vivir el kiosko de siempre.">
+<meta name="keywords" content="café de especialidad Barcelona, specialty coffee Barcelona, kiosko Barcelona, kiosco Barcelona, revistas independientes Barcelona, cromos Barcelona, Pokémon Barcelona, Panini Barcelona, café Eixample, coffee kiosk Barcelona">
+<meta property="og:title" content="FRED | Café & Kiosko en Barcelona">
+<meta property="og:description" content="Not your average kiosk. Café de especialidad, revistas, prensa y cromos en el Eixample.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#EE2A1E;
+  --red-dark:#C41E14;
+  --paper:#FFFFFF;
+  --cream:#FFF7F0;
+  --ink:#1A1210;
+  --mug-blue:#2A6BD4;
+  --mug-green:#2FA84F;
+  --mug-purple:#7B3FD1;
+  --mug-orange:#F5A623;
+  --display:'Alfa Slab One',serif;
+  --body:'Archivo',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+::selection{background:var(--red);color:#fff}
+
+/* halftone texture */
+.halftone{
+  background-image:radial-gradient(circle, rgba(238,42,30,.14) 1.3px, transparent 1.4px);
+  background-size:14px 14px;
+}
+
+/* ---------- HEADER ---------- */
+header{
+  position:sticky;top:0;z-index:100;
+  background:var(--paper);
+  border-bottom:3px solid var(--red);
+}
+.header-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.7rem 1.25rem;gap:1rem;
+}
+.logo-badge{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
+.logo-badge svg{height:44px;width:auto;display:block}
+nav.main-nav{display:flex;gap:1.6rem;align-items:center}
+nav.main-nav a{
+  text-decoration:none;color:var(--ink);
+  font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;
+  border-bottom:2px solid transparent;padding:.2rem 0;
+  transition:color .15s,border-color .15s;
+}
+nav.main-nav a:hover,nav.main-nav a:focus-visible{color:var(--red);border-color:var(--red)}
+.btn{
+  display:inline-block;text-decoration:none;cursor:pointer;
+  font-family:var(--body);font-weight:900;text-transform:uppercase;letter-spacing:.06em;
+  font-size:.85rem;padding:.65rem 1.3rem;border-radius:999px;
+  border:2.5px solid var(--ink);
+  background:var(--red);color:#fff;
+  box-shadow:3px 3px 0 var(--ink);
+  transition:transform .12s,box-shadow .12s;
+}
+.btn:hover,.btn:focus-visible{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.btn:active{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink)}
+.btn.ghost{background:#fff;color:var(--red)}
+.menu-toggle{display:none;background:none;border:none;font-size:1.8rem;color:var(--red);cursor:pointer;line-height:1}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  padding:4.5rem 1.25rem 3.5rem;
+  text-align:center;
+  overflow:hidden;
+}
+.hero-burst{
+  width:min(680px,92vw);height:auto;margin:0 auto;display:block;
+  animation:pop-in .7s cubic-bezier(.2,1.4,.4,1) both;
+}
+@keyframes pop-in{from{transform:scale(.6) rotate(-4deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.hero .kicker{
+  font-weight:900;letter-spacing:.28em;text-transform:uppercase;
+  font-size:.85rem;color:var(--red);margin-bottom:1.2rem;
+  animation:fade-up .6s .15s both;
+}
+.hero h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.hero .tagline{
+  font-size:clamp(1.1rem,2.6vw,1.5rem);
+  max-width:560px;margin:1.8rem auto 0;font-weight:500;
+  animation:fade-up .6s .3s both;
+}
+.hero .tagline strong{color:var(--red)}
+.hero-ctas{margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fade-up .6s .45s both}
+@keyframes fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---------- MARQUEE ---------- */
+.marquee{
+  background:var(--red);color:#fff;
+  border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);
+  overflow:hidden;white-space:nowrap;
+  padding:.7rem 0;
+}
+.marquee-track{display:inline-block;animation:scroll 28s linear infinite}
+.marquee span{
+  font-family:var(--display);font-size:1.05rem;letter-spacing:.04em;
+  margin:0 2.2rem;text-transform:uppercase;
+}
+.marquee span::after{content:"★";margin-left:2.2rem;font-family:var(--body)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .marquee-track{animation:none}
+  .hero-burst,.hero .kicker,.hero .tagline,.hero-ctas{animation:none}
+}
+
+/* ---------- SECTIONS ---------- */
+section{padding:5rem 1.25rem}
+.wrap{max-width:1100px;margin:0 auto}
+.eyebrow{
+  display:inline-block;
+  font-weight:900;text-transform:uppercase;letter-spacing:.22em;font-size:.78rem;
+  color:#fff;background:var(--red);
+  padding:.35rem .9rem;border-radius:999px;border:2px solid var(--ink);
+  margin-bottom:1.2rem;
+}
+h2{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(2rem,5vw,3.2rem);
+  line-height:1.1;color:var(--ink);
+  margin-bottom:1.4rem;
+}
+h2 .red{color:var(--red)}
+
+/* Sobre */
+.about{background:var(--cream)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center}
+.about p{margin-bottom:1rem;font-size:1.05rem}
+.manifesto{
+  border:3px solid var(--red);border-radius:20px;
+  background:#fff;padding:2.2rem 2rem;
+  box-shadow:8px 8px 0 var(--red);
+  transform:rotate(1.2deg);
+}
+.manifesto p{
+  font-family:var(--display);font-size:clamp(1.15rem,2.4vw,1.5rem);
+  line-height:1.45;margin:0;
+}
+.manifesto p span{display:block}
+.manifesto .no{color:var(--ink);opacity:.55;text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:3px}
+.manifesto .yes{color:var(--red);margin-top:.8rem}
+
+/* Qué encontrarás */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.6rem;margin-top:2.5rem}
+.card{
+  border:3px solid var(--ink);border-radius:18px;background:#fff;
+  padding:1.8rem 1.6rem;position:relative;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:5px 5px 0 rgba(26,18,16,.12);
+}
+.card:hover{transform:translateY(-5px) rotate(-.5deg);box-shadow:8px 10px 0 var(--red)}
+.card .icon{font-size:2.2rem;line-height:1;margin-bottom:.9rem;display:block}
+.card h3{
+  font-family:var(--display);font-weight:400;font-size:1.35rem;
+  color:var(--red);margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.02em;
+}
+.card p{font-size:.97rem}
+.card .tags{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{
+  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+  padding:.25rem .7rem;border-radius:999px;border:2px solid currentColor;
+}
+.tag.b{color:var(--mug-blue)} .tag.g{color:var(--mug-green)}
+.tag.p{color:var(--mug-purple)} .tag.o{color:var(--mug-orange)} .tag.r{color:var(--red)}
+
+/* Valores */
+.values{background:var(--red);color:#fff;text-align:center}
+.values h2{color:#fff}
+.values .eyebrow{background:#fff;color:var(--red);border-color:#fff}
+.value-cloud{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;max-width:760px;margin:2rem auto 0}
+.value-chip{
+  font-family:var(--display);font-size:clamp(1rem,2.4vw,1.5rem);
+  background:#fff;color:var(--red);
+  padding:.5rem 1.4rem;border-radius:999px;
+  border:3px solid var(--ink);
+  transform:rotate(var(--r,0deg));
+  transition:transform .15s;
+}
+.value-chip:hover{transform:rotate(0deg) scale(1.07)}
+
+/* FAQ */
+.faq-list{max-width:760px;margin:2rem auto 0}
+details{
+  border:3px solid var(--ink);border-radius:14px;background:#fff;
+  margin-bottom:1rem;overflow:hidden;
+}
+summary{
+  cursor:pointer;list-style:none;
+  padding:1.1rem 1.4rem;
+  font-weight:900;font-size:1.02rem;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-size:1.4rem;color:var(--red);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details[open]{border-color:var(--red)}
+details .answer{padding:0 1.4rem 1.2rem;font-size:.98rem}
+
+/* Contacto */
+.contact{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2rem}
+.contact-block{margin-bottom:1.6rem}
+.contact-block h4{
+  font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;
+  color:var(--red);margin-bottom:.3rem;
+}
+.contact-block p,.contact-block a{font-size:1.05rem;color:var(--ink)}
+.contact-block a{font-weight:700;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:3px}
+.contact-block a:hover{color:var(--red)}
+.pending{opacity:.5;font-style:italic}
+.map-card{
+  border:3px solid var(--ink);border-radius:18px;overflow:hidden;
+  background:#fff;box-shadow:8px 8px 0 var(--red);
+}
+.map-card .map-top{
+  padding:2.5rem 2rem;text-align:center;
+}
+.map-card .map-top .pin{font-size:3rem;display:block;margin-bottom:.8rem}
+.map-card .map-top p{font-family:var(--display);font-size:1.2rem;margin-bottom:1.4rem}
+
+/* Footer */
+footer{
+  background:var(--ink);color:#fff;
+  text-align:center;padding:3.5rem 1.25rem 2.5rem;
+}
+footer .hi{
+  font-family:var(--display);
+  font-size:clamp(1.6rem,4.5vw,2.6rem);
+  color:var(--red);
+  -webkit-text-stroke:1px #fff;
+  margin-bottom:.8rem;
+}
+footer .sub{opacity:.75;font-size:.92rem;margin-bottom:1.6rem}
+footer .social{display:flex;gap:1rem;justify-content:center;margin-bottom:2rem}
+footer .fine{font-size:.78rem;opacity:.45}
+
+/* focus */
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--mug-blue);outline-offset:2px}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:820px){
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2.2rem}
+  nav.main-nav{
+    display:none;
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--paper);border-bottom:3px solid var(--red);
+    flex-direction:column;padding:1.2rem;gap:1.1rem;
+  }
+  nav.main-nav.open{display:flex}
+  .menu-toggle{display:block}
+  .header-cta{display:none}
+  section{padding:3.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#top" class="logo-badge" aria-label="FRED, inicio">
+      <!-- spiky FRED badge -->
+      <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+        <polygon fill="#EE2A1E" points="150,2 172,14 198,6 210,22 240,18 242,38 272,40 262,58 288,68 268,80 284,96 252,92 244,98 226,88 204,98 188,86 162,96 150,84 138,96 112,86 96,98 74,88 56,98 48,92 16,96 32,80 12,68 38,58 28,40 58,38 60,18 90,22 102,6 128,14"/>
+        <text x="150" y="64" text-anchor="middle" font-family="'Alfa Slab One',serif" font-size="44" fill="#fff" letter-spacing="10">FRED</text>
+      </svg>
+    </a>
+    <nav class="main-nav" id="nav">
+      <a href="#sobre">Sobre</a>
+      <a href="#encontraras">Café & Kiosko</a>
+      <a href="#valores">Valores</a>
+      <a href="#faq">FAQ</a>
+      <a href="#visita">Visítanos</a>
+    </nav>
+    <a class="btn header-cta" href="https://www.instagram.com/fred.kiosko" target="_blank" rel="noopener">Instagram</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero halftone">
+    <p class="kicker">Café & Kiosko · L'Eixample · Barcelona</p>
+    <h1>FRED — Café y Kiosko en el Eixample de Barcelona</h1>
+    <svg class="hero-burst" viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FRED">
+      <polygon fill="#EE2A1E" points="350,6 392,30 448,10 470,44 534,34 540,76 612,80 592,118 656,140 610,166 646,204 574,196 556,232 508,208 458,234 420,206 350,230 288,206 244,234 196,208 148,232 128,196 56,204 92,166 46,140 110,118 90,80 162,76 168,34 232,44 254,10 310,30"/>
+      <text x="350" y="152" text-anchor="middle" font-family="'Alfa Slab One',serif" font-size="104" fill="#fff" letter-spacing="26">FRED</text>
+    </svg>
+    <p class="tagline">Un kiosko de barrio <strong>reinventado</strong>. Café de especialidad, prensa, revistas, cromos y cultura cotidiana — todo en el mismo mostrador.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="https://maps.app.goo.gl/mwCx6yHdM5L5HcMv9" target="_blank" rel="noopener">Cómo llegar</a>
+      <a class="btn ghost" href="#encontraras">Qué encontrarás</a>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Not your average kiosk</span><span>Coffee first. Culture also.</span><span>We brew opinions (& coffee)</span><span>Drink responsibly. Read irresponsibly.</span><span>Judge a book by its cover</span><span>Massa Fred</span>
+      <span>Not your average kiosk</span><span>Coffee first. Culture also.</span><span>We brew opinions (& coffee)</span><span>Drink responsibly. Read irresponsibly.</span><span>Judge a book by its cover</span><span>Massa Fred</span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="about" id="sobre">
+    <div class="wrap about-grid">
+      <div>
+        <span class="eyebrow">Sobre FRED</span>
+        <h2>El kiosko de siempre, <span class="red">como nunca</span>.</h2>
+        <p>Los kioskos siempre han sido lugares de encuentro: comprar el periódico, saludar al vecino, descubrir una revista nueva o simplemente parar cinco minutos. Con el tiempo muchos han desaparecido. <strong>FRED nace para demostrar que todavía tienen mucho sentido.</strong></p>
+        <p>Recuperamos uno de los espacios más icónicos de la ciudad y le damos nueva vida: respetamos la esencia del kiosko tradicional y la mezclamos con café de especialidad, diseño, cultura y una forma mucho más contemporánea de entender el barrio.</p>
+        <p>Queremos que entrar en FRED sea tan normal como comprar el periódico de camino al trabajo — y tan especial como descubrir una revista independiente o tomar uno de los mejores cafés del barrio.</p>
+      </div>
+      <div class="manifesto" role="presentation">
+        <p>
+          <span class="no">No somos una cafetería con revistas.</span>
+          <span class="no">No somos un kiosko que sirve café.</span>
+          <span class="yes">Somos ambas cosas a la vez.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ ENCONTRARÁS -->
+  <section id="encontraras">
+    <div class="wrap">
+      <span class="eyebrow">Qué encontrarás</span>
+      <h2>Cinco razones para <span class="red">parar cinco minutos</span>.</h2>
+      <div class="cards">
+        <article class="card">
+          <span class="icon" aria-hidden="true">☕</span>
+          <h3>Café</h3>
+          <p>Café de especialidad preparado por personas apasionadas por hacerlo bien. Excelente, pero sin elitismos: todo el mundo es bienvenido.</p>
+          <div class="tags">
+            <span class="tag r">Espresso</span><span class="tag o">Flat White</span><span class="tag g">Cappuccino</span><span class="tag b">Batch Brew</span><span class="tag p">Frías & temporada</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">📖</span>
+          <h3>Revistas</h3>
+          <p>Una selección cuidada de revistas nacionales e internacionales, y publicaciones independientes difíciles de encontrar en otros sitios.</p>
+          <div class="tags">
+            <span class="tag r">Diseño</span><span class="tag b">Moda</span><span class="tag g">Arquitectura</span><span class="tag p">Arte</span><span class="tag o">Foto</span><span class="tag b">Música</span><span class="tag g">Viajes</span><span class="tag r">Gastro</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">🗞️</span>
+          <h3>Prensa</h3>
+          <p>Seguimos creyendo en el placer de leer el periódico en papel. Prensa diaria nacional e internacional, todos los días.</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">✨</span>
+          <h3>Cromos</h3>
+          <p>Sobres, álbumes y novedades para coleccionistas de todas las edades. Ven a probar suerte.</p>
+          <div class="tags">
+            <span class="tag o">Pokémon</span><span class="tag b">Panini</span><span class="tag p">Trading Cards</span><span class="tag g">Novedades</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">👕</span>
+          <h3>Merch</h3>
+          <p>FRED también es una marca: camisetas, stickers, abanicos, mecheros y objetos de edición limitada inspirados en la identidad del kiosko.</p>
+          <div class="tags">
+            <span class="tag r">Ediciones limitadas</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="values" id="valores">
+    <div class="wrap">
+      <span class="eyebrow">Nuestra filosofía</span>
+      <h2>El café sabe mejor cuando se comparte.</h2>
+      <div class="value-cloud">
+        <span class="value-chip" style="--r:-2deg">Cercanía</span>
+        <span class="value-chip" style="--r:1.5deg">Comunidad</span>
+        <span class="value-chip" style="--r:-1deg">Cultura</span>
+        <span class="value-chip" style="--r:2deg">Diseño</span>
+        <span class="value-chip" style="--r:-2.5deg">Buen café</span>
+        <span class="value-chip" style="--r:1deg">Barrio</span>
+        <span class="value-chip" style="--r:-1.5deg">Honestidad</span>
+        <span class="value-chip" style="--r:2.5deg">Diversión</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap" style="text-align:center">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Lo que todo el mundo <span class="red">pregunta</span>.</h2>
+      <div class="faq-list" style="text-align:left">
+        <details>
+          <summary>¿Puedo sentarme?</summary>
+          <div class="answer">Sí. Queremos que FRED sea un lugar donde quedarse un rato y disfrutar del barrio.</div>
+        </details>
+        <details>
+          <summary>¿Vendéis café para llevar?</summary>
+          <div class="answer">Sí.</div>
+        </details>
+        <details>
+          <summary>¿Tenéis revistas independientes?</summary>
+          <div class="answer">Sí. Es una parte muy importante de nuestra selección.</div>
+        </details>
+        <details>
+          <summary>¿Vendéis cromos?</summary>
+          <div class="answer">Sí. Trabajamos con diferentes colecciones y novedades.</div>
+        </details>
+        <details>
+          <summary>¿Puedo comprar merchandising?</summary>
+          <div class="answer">Sí. Tendremos productos exclusivos y ediciones limitadas.</div>
+        </details>
+        <details>
+          <summary>¿Aceptáis tarjeta?</summary>
+          <div class="answer">Sí.</div>
+        </details>
+        <details>
+          <summary>¿Se puede venir con perro?</summary>
+          <div class="answer">Sí, siempre que esté bien acompañado.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="visita">
+    <div class="wrap">
+      <span class="eyebrow">Visítanos</span>
+      <h2>Pásate por el <span class="red">barrio</span>.</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-block">
+            <h4>Dirección</h4>
+            <p class="pending">(Pendiente de confirmar)</p>
+            <p>L'Eixample · Barcelona</p>
+          </div>
+          <div class="contact-block">
+            <h4>Horario</h4>
+            <p class="pending">(Pendiente de confirmar)</p>
+          </div>
+          <div class="contact-block">
+            <h4>Instagram</h4>
+            <p><a href="https://www.instagram.com/fred.kiosko" target="_blank" rel="noopener">@fred.kiosko</a></p>
+          </div>
+        </div>
+        <div class="map-card">
+          <div class="map-top halftone">
+            <span class="pin" aria-hidden="true">📍</span>
+            <p>Estamos en el Eixample.<br>Ven a conocernos.</p>
+            <a class="btn" href="https://maps.app.goo.gl/mwCx6yHdM5L5HcMv9" target="_blank" rel="noopener">Abrir en Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="hi">Hi, this is Fred.</p>
+  <p class="sub">Café & Kiosko · L'Eixample · Barcelona · Massa Fred.</p>
+  <div class="social">
+    <a class="btn" href="https://www.instagram.com/fred.kiosko" target="_blank" rel="noopener">Instagram</a>
+    <a class="btn ghost" href="https://maps.app.goo.gl/mwCx6yHdM5L5HcMv9" target="_blank" rel="noopener">Google Maps</a>
+  </div>
+  <p class="fine">© 2026 FRED Café & Kiosko. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+const toggle=document.getElementById('menuToggle');
+const nav=document.getElementById('nav');
+toggle.addEventListener('click',()=>{
+  const open=nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded',open);
+  toggle.textContent=open?'✕':'☰';
+});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  nav.classList.remove('open');
+  toggle.setAttribute('aria-expanded','false');
+  toggle.textContent='☰';
+}));
+</script>
+
+</body>
+</html>
