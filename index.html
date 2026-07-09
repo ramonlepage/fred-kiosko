@@ -9,6 +9,8 @@
 <meta property="og:title" content="FRED | Café & Kiosko en Barcelona">
 <meta property="og:description" content="Not your average kiosk. Café de especialidad, revistas, prensa y cromos en el Eixample.">
 <meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -254,6 +256,33 @@ footer .sub{opacity:.75;font-size:.92rem;margin-bottom:1.6rem}
 footer .social{display:flex;gap:1rem;justify-content:center;margin-bottom:2rem}
 footer .fine{font-size:.78rem;opacity:.45}
 
+/* asset images */
+.hero-burst{height:auto}
+.about-wolf{
+  display:block;width:min(300px,70%);height:auto;
+  margin:0 auto 1.6rem;
+  transform:rotate(-2deg);
+}
+.card .icon-img{
+  height:96px;width:auto;max-width:100%;
+  display:block;margin-bottom:1rem;
+  object-fit:contain;
+}
+.art-band{
+  text-align:center;padding:4rem 1.25rem;
+  border-top:3px solid var(--red);
+}
+.art-band img{width:min(560px,85vw);height:auto;display:block;margin:0 auto}
+.art-caption{
+  font-family:var(--display);color:var(--red);
+  font-size:clamp(1.2rem,3vw,1.8rem);
+  margin-top:1.5rem;text-transform:uppercase;
+}
+.footer-mugs{
+  width:min(340px,70vw);height:auto;
+  display:block;margin:0 auto 1.5rem;
+}
+
 /* focus */
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--mug-blue);outline-offset:2px}
 
@@ -278,11 +307,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 <header>
   <div class="header-inner">
     <a href="#top" class="logo-badge" aria-label="FRED, inicio">
-      <!-- spiky FRED badge -->
-      <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-        <polygon fill="#EE2A1E" points="150,2 172,14 198,6 210,22 240,18 242,38 272,40 262,58 288,68 268,80 284,96 252,92 244,98 226,88 204,98 188,86 162,96 150,84 138,96 112,86 96,98 74,88 56,98 48,92 16,96 32,80 12,68 38,58 28,40 58,38 60,18 90,22 102,6 128,14"/>
-        <text x="150" y="64" text-anchor="middle" font-family="'Alfa Slab One',serif" font-size="44" fill="#fff" letter-spacing="10">FRED</text>
-      </svg>
+      <img src="assets/logo-fred.png" alt="FRED" style="height:44px;width:auto;display:block">
     </a>
     <nav class="main-nav" id="nav">
       <a href="#sobre">Sobre</a>
@@ -302,10 +327,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   <section class="hero halftone">
     <p class="kicker">Café & Kiosko · L'Eixample · Barcelona</p>
     <h1>FRED — Café y Kiosko en el Eixample de Barcelona</h1>
-    <svg class="hero-burst" viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FRED">
-      <polygon fill="#EE2A1E" points="350,6 392,30 448,10 470,44 534,34 540,76 612,80 592,118 656,140 610,166 646,204 574,196 556,232 508,208 458,234 420,206 350,230 288,206 244,234 196,208 148,232 128,196 56,204 92,166 46,140 110,118 90,80 162,76 168,34 232,44 254,10 310,30"/>
-      <text x="350" y="152" text-anchor="middle" font-family="'Alfa Slab One',serif" font-size="104" fill="#fff" letter-spacing="26">FRED</text>
-    </svg>
+    <img class="hero-burst" src="assets/logo-fred.png" alt="FRED" width="1800" height="554">
     <p class="tagline">Un kiosko de barrio <strong>reinventado</strong>. Café de especialidad, prensa, revistas, cromos y cultura cotidiana — todo en el mismo mostrador.</p>
     <div class="hero-ctas">
       <a class="btn" href="https://maps.app.goo.gl/mwCx6yHdM5L5HcMv9" target="_blank" rel="noopener">Cómo llegar</a>
@@ -331,12 +353,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
         <p>Recuperamos uno de los espacios más icónicos de la ciudad y le damos nueva vida: respetamos la esencia del kiosko tradicional y la mezclamos con café de especialidad, diseño, cultura y una forma mucho más contemporánea de entender el barrio.</p>
         <p>Queremos que entrar en FRED sea tan normal como comprar el periódico de camino al trabajo — y tan especial como descubrir una revista independiente o tomar uno de los mejores cafés del barrio.</p>
       </div>
-      <div class="manifesto" role="presentation">
-        <p>
-          <span class="no">No somos una cafetería con revistas.</span>
-          <span class="no">No somos un kiosko que sirve café.</span>
-          <span class="yes">Somos ambas cosas a la vez.</span>
-        </p>
+      <div>
+        <img src="assets/lobo-cafe-periodico.png" alt="Fred, el lobo del kiosko, con su café y el periódico" class="about-wolf">
+        <div class="manifesto" role="presentation">
+          <p>
+            <span class="no">No somos una cafetería con revistas.</span>
+            <span class="no">No somos un kiosko que sirve café.</span>
+            <span class="yes">Somos ambas cosas a la vez.</span>
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -348,7 +373,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
       <h2>Cinco razones para <span class="red">parar cinco minutos</span>.</h2>
       <div class="cards">
         <article class="card">
-          <span class="icon" aria-hidden="true">☕</span>
+          <img class="icon-img" src="assets/taza-fred.png" alt="" aria-hidden="true">
           <h3>Café</h3>
           <p>Café de especialidad preparado por personas apasionadas por hacerlo bien. Excelente, pero sin elitismos: todo el mundo es bienvenido.</p>
           <div class="tags">
@@ -356,7 +381,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
           </div>
         </article>
         <article class="card">
-          <span class="icon" aria-hidden="true">📖</span>
+          <img class="icon-img" src="assets/lobo-revista.png" alt="" aria-hidden="true">
           <h3>Revistas</h3>
           <p>Una selección cuidada de revistas nacionales e internacionales, y publicaciones independientes difíciles de encontrar en otros sitios.</p>
           <div class="tags">
@@ -364,12 +389,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
           </div>
         </article>
         <article class="card">
-          <span class="icon" aria-hidden="true">🗞️</span>
+          <img class="icon-img" src="assets/lobo-cafe-periodico.png" alt="" aria-hidden="true">
           <h3>Prensa</h3>
           <p>Seguimos creyendo en el placer de leer el periódico en papel. Prensa diaria nacional e internacional, todos los días.</p>
         </article>
         <article class="card">
-          <span class="icon" aria-hidden="true">✨</span>
+          <img class="icon-img" src="assets/lobo-grin.png" alt="" aria-hidden="true">
           <h3>Cromos</h3>
           <p>Sobres, álbumes y novedades para coleccionistas de todas las edades. Ven a probar suerte.</p>
           <div class="tags">
@@ -377,7 +402,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
           </div>
         </article>
         <article class="card">
-          <span class="icon" aria-hidden="true">👕</span>
+          <img class="icon-img" src="assets/lobo-outline.png" alt="" aria-hidden="true">
           <h3>Merch</h3>
           <p>FRED también es una marca: camisetas, stickers, abanicos, mecheros y objetos de edición limitada inspirados en la identidad del kiosko.</p>
           <div class="tags">
@@ -386,6 +411,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
         </article>
       </div>
     </div>
+  </section>
+
+  <!-- BANDA VISUAL -->
+  <section class="art-band halftone" aria-hidden="true">
+    <img src="assets/cafe-libros.png" alt="">
+    <p class="art-caption">Coffee first. Culture first also.</p>
   </section>
 
   <!-- VALORES -->
@@ -479,6 +510,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 </main>
 
 <footer>
+  <img src="assets/logo-tazas.png" alt="FRED escrito en cuatro tazas de café" class="footer-mugs">
   <p class="hi">Hi, this is Fred.</p>
   <p class="sub">Café & Kiosko · L'Eixample · Barcelona · Massa Fred.</p>
   <div class="social">

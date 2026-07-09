@@ -19,5 +19,6 @@ Deploy manual: `vercel --prod`
 ## Pendiente
 - [ ] Dirección exacta
 - [ ] Horarios
-- [ ] Fotos reales del local y merch
-- [ ] Dominio propio (ej. fredkiosko.com)
+- [x] Assets de marca integrados
+- [ ] Fotos reales del local
+- [x] Dominio propio conectado (fredkiosko.com)
